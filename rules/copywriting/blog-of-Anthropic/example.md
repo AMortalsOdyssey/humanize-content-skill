@@ -1,30 +1,28 @@
-# Examples
+# 示例：多 Agent 小红书文案
 
-## Xiaohongshu Note: Multi-Agent Collaboration
+## 使用场景
 
-### Request
+用户给了一段重复、口号感较强的小红书草稿，主题是“多开几个 AI Agent 不一定更快”。目标是保留小红书的可读性，但按 `blog-of-Anthropic` 的机制重写：从真实失败出发，讲清楚协作系统、事实来源、角色边界和验收证据。
 
-Rewrite a duplicated Xiaohongshu draft about the misconception that opening more AI agents automatically makes complex work faster. Apply the `blog-of-anthropic` rule while keeping social readability.
-
-### Output
+## 输出示例
 
 # 多开几个 AI Agent 就更快？我踩坑后才懂的真相
 
 复杂需求来了，很多人的第一反应是：
 
-"那就多开几个 Agent，并行写，不就快了吗？"
+“那就多开几个 Agent，并行写，不就快了吗？”
 
 我一开始也是这么做的。
 
 结果不是快，而是乱。
 
-几个 Agent 同时改同一个文件，后提交的人把前面的结果覆盖掉。每个 Agent 都说自己"做完了"，但问它依据是什么，只能给一段自我总结。更麻烦的是，它们会在不同理解里越跑越远，直到最后集成时才发现方向已经不一样了。
+几个 Agent 同时改同一个文件，后提交的人把前面的结果覆盖掉。每个 Agent 都说自己“做完了”，但问它依据是什么，只能给一段自我总结。更麻烦的是，它们会在不同理解里越跑越远，直到最后集成时才发现方向已经不一样了。
 
-后来我意识到，多 Agent 协作真正要解决的，不是"怎么让更多 Agent 同时动手"，而是"怎么让每个 Agent 在同一个事实系统里工作"。
+后来我意识到，多 Agent 协作真正要解决的，不是“怎么让更多 Agent 同时动手”，而是“怎么让每个 Agent 在同一个事实系统里工作”。
 
 ## 1. 聊天不是事实来源
 
-多 Agent 项目里，最危险的一句话是："我刚才不是说过了吗？"
+多 Agent 项目里，最危险的一句话是：“我刚才不是说过了吗？”
 
 人能记得上下文，Agent 不一定。就算它记得，也可能记错、漏掉、或者只记住对自己有利的部分。
 
@@ -47,7 +45,7 @@ Rewrite a duplicated Xiaohongshu draft about the misconception that opening more
 - 可恢复：换一个 Agent 接手，看文件就知道当前状态
 - 不互踩：每个任务、每个文件有明确 owner
 - 不漂移：接口和数据结构写成 schema 或测试，而不是口头约定
-- 可证明：说"完成"时，必须附上命令、截图、日志或测试结果
+- 可证明：说“完成”时，必须附上命令、截图、日志或测试结果
 
 这一步看起来慢，但它决定了后面能不能真的并行。
 
@@ -70,9 +68,9 @@ Rewrite a duplicated Xiaohongshu draft about the misconception that opening more
 
 主 Agent 的价值不是写得最多，而是让所有人知道现在该相信什么。
 
-## 4. "做完了"必须可以被验证
+## 4. “做完了”必须可以被验证
 
-多 Agent 协作里，我现在基本不接受一句"已完成"。
+多 Agent 协作里，我现在基本不接受一句“已完成”。
 
 完成必须带证据：
 
@@ -91,7 +89,7 @@ Rewrite a duplicated Xiaohongshu draft about the misconception that opening more
 
 现在我对多 Agent 协作的理解变了。
 
-它不是"多找几个 AI 同时写代码"。
+它不是“多找几个 AI 同时写代码”。
 
 它更像是在项目里搭一个小型工作系统：事实有唯一来源，任务有明确边界，接口有机器可检查的契约，完成有可复现的证据。
 
@@ -107,9 +105,9 @@ Rewrite a duplicated Xiaohongshu draft about the misconception that opening more
 
 不要反过来。
 
-### Why It Works
+## 为什么这版更像真人
 
-- It starts from a lived failure, not a slogan.
-- It converts an abstract idea into inspectable artifacts: matrices, contracts, goals, evidence.
-- It keeps the speaker's judgment visible without turning into hype.
-- It ends with a decision rule the reader can apply.
+- 它从真实踩坑开始，而不是从“AI 协作大趋势”开始。
+- 它把抽象概念落到了需求矩阵、契约文件、命令、截图这些对象上。
+- 它有明确判断，但判断背后有失败场景支撑。
+- 它的结尾给了可执行边界：什么时候一个 Agent 就够，什么时候再开多 Agent。
