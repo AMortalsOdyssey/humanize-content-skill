@@ -1,0 +1,115 @@
+# Examples
+
+## Xiaohongshu Note: Multi-Agent Collaboration
+
+### Request
+
+Rewrite a duplicated Xiaohongshu draft about the misconception that opening more AI agents automatically makes complex work faster. Apply the `blog-of-anthropic` rule while keeping social readability.
+
+### Output
+
+# 多开几个 AI Agent 就更快？我踩坑后才懂的真相
+
+复杂需求来了，很多人的第一反应是：
+
+"那就多开几个 Agent，并行写，不就快了吗？"
+
+我一开始也是这么做的。
+
+结果不是快，而是乱。
+
+几个 Agent 同时改同一个文件，后提交的人把前面的结果覆盖掉。每个 Agent 都说自己"做完了"，但问它依据是什么，只能给一段自我总结。更麻烦的是，它们会在不同理解里越跑越远，直到最后集成时才发现方向已经不一样了。
+
+后来我意识到，多 Agent 协作真正要解决的，不是"怎么让更多 Agent 同时动手"，而是"怎么让每个 Agent 在同一个事实系统里工作"。
+
+## 1. 聊天不是事实来源
+
+多 Agent 项目里，最危险的一句话是："我刚才不是说过了吗？"
+
+人能记得上下文，Agent 不一定。就算它记得，也可能记错、漏掉、或者只记住对自己有利的部分。
+
+所以我后来会先建一个协同区，把关键事实落成文件：
+
+- 状态，只认需求矩阵
+- 结论，只认落档方案
+- 接口，只认契约文件
+- 长跑任务，只认 Goal 手册
+- 集成风险，只认合并和回滚手册
+
+聊天可以用来讨论，但不能当最终依据。真正有效的信息，必须能被下一个 Agent 打开文件继续执行。
+
+## 2. 文件系统要承担协作秩序
+
+这个协同区不是资料夹，而是项目里的控制面。
+
+它至少要做到四件事：
+
+- 可恢复：换一个 Agent 接手，看文件就知道当前状态
+- 不互踩：每个任务、每个文件有明确 owner
+- 不漂移：接口和数据结构写成 schema 或测试，而不是口头约定
+- 可证明：说"完成"时，必须附上命令、截图、日志或测试结果
+
+这一步看起来慢，但它决定了后面能不能真的并行。
+
+没有这些文件，多开 Agent 只是把一个人的混乱复制成多份。
+
+## 3. 主 Agent 不应该亲自下场写代码
+
+我踩过的另一个坑是：让主 Agent 一边派任务，一边自己写核心代码。
+
+短期看很积极，长期看很危险。
+
+因为主 Agent 一旦下场，它就会失去全局视角。它会开始关注自己那部分代码有没有写完，而不是判断整个项目有没有偏航。
+
+更好的分工是：
+
+- 主 Agent 负责拆任务、定边界、维护事实文件
+- 子 Agent 负责在明确边界内实现
+- 验证 Agent 或集成步骤负责检查证据
+- 人负责决定方向、处理取舍和最终验收
+
+主 Agent 的价值不是写得最多，而是让所有人知道现在该相信什么。
+
+## 4. "做完了"必须可以被验证
+
+多 Agent 协作里，我现在基本不接受一句"已完成"。
+
+完成必须带证据：
+
+- 哪个需求被满足了
+- 改了哪些文件
+- 跑了什么命令
+- 输出是什么
+- 如果失败，失败在哪里
+- 是否影响其他 Agent 的边界
+
+如果一个结果不能被复现，它就还不算完成。
+
+这条规则会极大减少后期返工。因为你不需要相信 Agent 的语气，只需要看它留下的证据。
+
+## 5. 多 Agent 的速度来自秩序，不来自数量
+
+现在我对多 Agent 协作的理解变了。
+
+它不是"多找几个 AI 同时写代码"。
+
+它更像是在项目里搭一个小型工作系统：事实有唯一来源，任务有明确边界，接口有机器可检查的契约，完成有可复现的证据。
+
+只有这些东西先存在，并行才会真的变快。
+
+否则 Agent 越多，项目只是越早进入混乱。
+
+我现在的判断是：
+
+小需求，一个 Agent 加清晰验收就够了。
+
+复杂需求，先搭协同区，再开 Agent。
+
+不要反过来。
+
+### Why It Works
+
+- It starts from a lived failure, not a slogan.
+- It converts an abstract idea into inspectable artifacts: matrices, contracts, goals, evidence.
+- It keeps the speaker's judgment visible without turning into hype.
+- It ends with a decision rule the reader can apply.

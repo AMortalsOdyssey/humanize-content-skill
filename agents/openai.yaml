@@ -1,0 +1,4 @@
+interface:
+  display_name: "Humanize Content"
+  short_description: "Make writing, scripts, and visuals feel human"
+  default_prompt: "Use $humanize-content to rewrite this draft with a living, specific, low-AI voice."
