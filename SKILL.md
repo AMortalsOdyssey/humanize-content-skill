@@ -13,6 +13,15 @@ description: 去 AI 味内容规则库。用于创建、改写或审阅文案、
 - `rules/video/`：视频类规则，包含口播、分镜、脚本、短视频和讲解视频。
 - `rules/image/`：图片类规则，包含海报、封面、小红书卡片、图片提示词和视觉概念。
 
+## 文案类规则速览
+
+- `rules/copywriting/anthropic-like/rules.md`：默认可信结构规则，适合 AI、产品、工程、协作、教程、方法论和需要证据密度的中文内容。
+- `rules/copywriting/khazix-writer/reference.md`：外部个人风格引用，适合用户明确要求“数字生命卡兹克 / khazix-writer”时使用。
+- `rules/copywriting/shuorenhua/reference.md`：外部中文优先“说人话”引用，适合通用中文去 AI 味、日常表达、状态同步、README、论坛帖和产品说明。
+- `rules/copywriting/humanizer-zh/reference.md`：外部 Humanizer 中文版引用，适合用户明确要求 Humanizer-zh 或按 blader/humanizer 中文翻译版清理 AI 写作痕迹。
+- `rules/copywriting/humanizer/reference.md`：外部 blader/humanizer 引用，适合英文或中英混写文本的 AI writing pattern 清理，以及需要 voice calibration 的改写。
+- `rules/copywriting/nuwa-skill/reference.md`：外部风格蒸馏引用，适合从公开材料中提取作者表达 DNA、心智模型和可复用个人风格规则。
+
 ## 使用流程
 
 1. 先判断内容类型：
@@ -23,7 +32,9 @@ description: 去 AI 味内容规则库。用于创建、改写或审阅文案、
 2. 再选择具体规则：
    - 用户点名某个规则时，读取该规则文件夹。
    - 未点名且内容是 AI、产品、工程、协作、教程、方法论时，默认使用 `rules/copywriting/anthropic-like/rules.md`。
+   - 未点名且只是要求中文“去 AI 味”“说人话”“自然一点”时，优先参考 `rules/copywriting/shuorenhua/reference.md`，必要时再结合 `anthropic-like` 的可信结构。
    - 用户点名 `khazix-writer` 或“数字生命卡兹克风格”时，只读取 `rules/copywriting/khazix-writer/reference.md`，按其中链接决定是否需要查看外部仓库。
+   - 用户点名 `Humanizer-zh`、`humanizer-zh`、`humanizer`、`blader/humanizer`、`shuorenhua`、`说人话`、`nuwa-skill` 或“女娲”时，读取对应 `reference.md`，按其中链接决定是否需要查看外部仓库。
 
 3. 写之前先做一个事实盘点：
    - 谁在说话？他/她处在什么真实角色里？
