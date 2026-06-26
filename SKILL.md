@@ -1,6 +1,6 @@
 ---
 name: humanize-content
-description: 去 AI 味内容规则库。用于创建、改写或审阅文案、文章、教程、小红书笔记、视频脚本、图片提示词、海报卡片和其他公开内容；当用户要求“去 AI 味”“写得像真人”“活人感”“按 blog-of-Anthropic / Khazix 等规则写”“让内容更具体可信”时使用。规则按三类组织：文案类、视频类、图片类。
+description: 去 AI 味内容规则库。用于创建、改写或审阅文案、文章、教程、小红书笔记、视频脚本、图片提示词、海报卡片和其他公开内容；当用户要求“去 AI 味”“写得像真人”“活人感”“按 anthropic-like / Khazix 等规则写”“让内容更具体可信”时使用。规则按三类组织：文案类、视频类、图片类。
 ---
 
 # Humanize Content
@@ -22,7 +22,7 @@ description: 去 AI 味内容规则库。用于创建、改写或审阅文案、
 
 2. 再选择具体规则：
    - 用户点名某个规则时，读取该规则文件夹。
-   - 未点名且内容是 AI、产品、工程、协作、教程、方法论时，默认使用 `rules/copywriting/blog-of-Anthropic/rules.md`。
+   - 未点名且内容是 AI、产品、工程、协作、教程、方法论时，默认使用 `rules/copywriting/anthropic-like/rules.md`。
    - 用户点名 `khazix-writer` 或“数字生命卡兹克风格”时，只读取 `rules/copywriting/khazix-writer/reference.md`，按其中链接决定是否需要查看外部仓库。
 
 3. 写之前先做一个事实盘点：
