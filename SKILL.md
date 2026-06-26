@@ -18,6 +18,7 @@ Use this skill to turn vague, polished, AI-like content into grounded work with 
 
 2. Select a style rule:
    - If the user names a style rule, load that file from `references/style-rules/`.
+   - If the user asks for a named content type or voice, load the matching adapter from `references/content-types/`.
    - If no rule is named and the task is about AI, product work, engineering, collaboration, or tutorials, use `references/style-rules/blog-of-anthropic.md`.
    - If no rule fits, still apply the medium rules and use the source draft's audience and tone.
 
@@ -55,3 +56,7 @@ When the user asks for critique, return the highest-signal issues first:
 ## Examples
 
 Read `references/examples.md` when the user asks for examples, asks what this skill should produce, or requests a Xiaohongshu-style rewrite similar to prior work.
+
+## Third-Party References
+
+Third-party writing systems live under `vendor/` and are opt-in. Do not read a vendor repository by default. Load a small adapter from `references/content-types/` first, then read the vendor skill only when the user explicitly asks for that voice or format.
